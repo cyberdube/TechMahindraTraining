@@ -1,0 +1,13 @@
+/* home.component.css */
+
+/* Styles for the home component */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  nav a {
+    margin-right: 10px;
+    text-decoration: underline;
+  }
+  
