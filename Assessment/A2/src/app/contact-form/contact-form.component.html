@@ -1,0 +1,16 @@
+<form (ngSubmit)="saveContact()">
+    <label>
+      Name:
+      <input [(ngModel)]="contact.name" name="name" required>
+    </label>
+    <label>
+      Phone:
+      <input [(ngModel)]="contact.phone" name="phone" required>
+    </label>
+    <label>
+      Email:
+      <input [(ngModel)]="contact.email" name="email" required>
+    </label>
+    <button type="submit">Save Contact</button>
+  </form>
+  

@@ -1,0 +1,12 @@
+<app-contact-form 
+  [contact]="selectedContact || { id: 0, name: '', phone: '', email: '' }" 
+  (contactSaved)="onContactSaved()">
+</app-contact-form>
+
+<ul>
+  <li *ngFor="let contact of contacts">
+    {{ contact.name }} - {{ contact.phone }} - {{ contact.email }}
+    <button (click)="editContact(contact)">Edit</button>
+    <button (click)="deleteContact(contact.id)">Delete</button>
+  </li>
+</ul>

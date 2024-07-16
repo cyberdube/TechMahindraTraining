@@ -1,0 +1,69 @@
+<div class="container">
+  <h1>Expense Tracker</h1>
+  
+  <!-- Form to Add Transaction -->
+  <form (submit)="addTransaction()">
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" id="description" [(ngModel)]="newTransaction.description" name="description" required>
+    </div>
+    
+    <div>
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" [(ngModel)]="newTransaction.amount" name="amount" required>
+    </div>
+    
+    <div>
+      <label for="type">Type:</label>
+      <select id="type" [(ngModel)]="newTransaction.type" name="type" required>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+    </div>
+    
+    <div>
+      <label for="category">Category:</label>
+      <input type="text" id="category" [(ngModel)]="newTransaction.category" name="category" required>
+    </div>
+    
+    <div>
+      <label for="date">Date:</label>
+      <input type="date" id="date" [(ngModel)]="newTransaction.date" name="date" required>
+    </div>
+    
+    <button type="submit">Add Transaction</button>
+  </form>
+  
+  <!-- Display Totals -->
+  <div class="totals">
+    <h2>Totals</h2>
+    <p>Total Income: {{ getTotalIncome() | currency }}</p>
+    <p>Total Expenses: {{ getTotalExpenses() | currency }}</p>
+    <p>Balance: {{ getBalance() | currency }}</p>
+  </div>
+  
+  <!-- List of Transactions -->
+  <div class="transaction-list">
+    <h2>Transactions</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Category</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td>{{ transaction.description }}</td>
+          <td>{{ transaction.amount | currency }}</td>
+          <td>{{ transaction.type }}</td>
+          <td>{{ transaction.category }}</td>
+          <td>{{ transaction.date | date:'shortDate' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
